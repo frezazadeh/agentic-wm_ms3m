@@ -3,7 +3,7 @@
 
 This repository contains the reference implementation of **WM–MS³M** from the paper:
 
-> **Agentic World Modeling for 6G O-RAN: Near-Real-Time Generative State-Space Reasoning**  
+> **Agentic World Modeling for 6G: Near-Real-Time Generative State-Space Reasoning**  
 > Farhad Rezazadeh, Hatim Chergui, Merouane Debbah, Houbing Song, Dusit Niyato, and Lingjia Liu.
 > [arXiv:2511.02748](https://arxiv.org/abs/2511.02748)
 
