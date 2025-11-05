@@ -29,6 +29,8 @@ The figure below summarizes the paper *Agentic World Modeling for 6G* as a high-
 
 - 📄 Paper: [https://arxiv.org/abs/2511.02748](https://arxiv.org/abs/2511.02748)  
 - 📊 Dataset (O-RAN KPIs): [Video Streaming Network KPIs for O-RAN Testing](https://ieee-dataport.org/documents/video-streaming-network-kpis-o-ran-testing)
+- 🎧 Podcast: [Paper podcast (MP3)](media/Paper-Podcast.mp3)
+
 
 ---
 ## Key Ideas
