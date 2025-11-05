@@ -62,29 +62,6 @@ Beyond metrics, it enables:
 
 ---
 
-## Repository Structure (Planned)
-
-> 🧩 **Note:** The structure below reflects the planned layout once the code is public.
-
-- `wm_ms3m/`
-  - `models/` – WM–MS³M architecture (SSM backbone, latent world model, decoders)  
-  - `training/` – training loop, losses, KL annealing, posterior/prior mixing  
-  - `planning/` – MPC / CEM planner, PRB constraints, reward shaping  
-  - `data/` – dataset utilities (windowing, scaling, splits)  
-- `experiments/`
-  - `configs/` – YAML/JSON configs for baselines and WM–MS³M  
-  - `scripts/` – end-to-end train/eval/plan scripts  
-- `notebooks/` – example notebooks: forecasting, what-if rollouts, PRB planning  
-- `README.md` – (this file)  
-- `LICENSE` – non-commercial research license (TBA)
-
----
-
-## Getting Started
-
-> ⏳ The code and full instructions (installation, training, and reproduction scripts)  
-> will be added once the repository is made public.
-
 Planned workflow:
 
 1. **Install** the environment (PyTorch and common TS/SSM dependencies).  
@@ -92,6 +69,84 @@ Planned workflow:
 3. **Train WM–MS³M** on chronological splits with leakage-safe preprocessing.  
 4. **Run inference** for KPI forecasting and uncertainty estimation.  
 5. **Run planner (MPC/CEM)** for near-real-time PRB control or offline policy evaluation.
+
+---
+
+## Repository structure
+
+```text
+wm_ms3m_github/
+├── src/
+│   └── wm_ms3m/
+│       ├── __init__.py
+│       └── core.py          # WM--MS3M model, training loop, and CEM planner
+├── scripts/
+│   └── train_wm_ms3m.py     # Command-line entry point for training
+├── data/
+│   └── README.md            # Notes about expected data format
+├── requirements.txt
+└── LICENSE
+```
+
+## Data format
+
+Place your preprocessed datasets as:
+
+- `data/x.npy` with shape **(N, L, F)**: rolling windows of past KPIs
+- `data/y.npy` with shape **(N, F)**: next-step KPI for each window
+
+The feature dimension **F** must match the ordering in `WMMS3MConfig.feature_names`:
+
+```python
+(
+    "MCS", "CQI", "RI", "PMI", "Buffer", "PRBs",
+    "RSRQ", "RSRP", "RSSI", "SINR", "SE", "BLER", "Delay"
+)
+```
+
+By default, **PRBs** at index 5 are treated as the action channel, and **RSRP** at index 7 is
+used as the main prediction target (while the model reconstructs all KPIs in scaled space).
+
+## Installation
+
+You can use this project as a pure script-style repo:
+
+```bash
+pip install -r requirements.txt
+export PYTHONPATH=src:$PYTHONPATH
+```
+
+or add `src/` to your interpreter path in your IDE.
+
+## Training
+
+Once `x.npy` and `y.npy` are in the `data/` directory:
+
+```bash
+python scripts/train_wm_ms3m.py --data-dir ./data --ckpt-dir ./artifacts
+```
+
+This will:
+
+- Train the WM--MS3M model on the RSRP prediction task
+- Save the best checkpoint and metrics to `./artifacts/`
+- Export test-set predictions to `test_pred.npy` and ground truth to `test_true.npy`
+
+## Using as a library
+
+```python
+from wm_ms3m import WMMS3MConfig, train_and_eval_wm_ms3m, wm_ms3m_cem_plan_next_prb
+
+cfg = WMMS3MConfig()
+cfg.data_dir = "./data"
+cfg.ckpt_dir = "./artifacts"
+
+bundle = train_and_eval_wm_ms3m(cfg)
+
+# Example MPC-style CEM planning for the next PRB
+# x_window_orig should be a (L, F) numpy array in original KPI units
+# a0, diag = wm_ms3m_cem_plan_next_prb(bundle, x_window_orig)
+```
 
 ---
 
@@ -115,8 +170,9 @@ If you use this work in your research, please cite:
 
 ## License
 
-The code for this project will be released under a **non-commercial research license**.  
-Details will be added once the repository goes public.
+This code is released under the MIT License (see `LICENSE`).
+
+If you use this implementation in academic work, please consider citing the corresponding paper.
 
 ---
 
