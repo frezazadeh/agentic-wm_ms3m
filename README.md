@@ -18,7 +18,12 @@ WM–MS³M is an **agentic world model** for 6G O-RAN that combines:
 The goal is to support **near-real-time, counterfactual, and uncertainty-aware control** in 6G O-RAN, treating *prediction/imagination* and *decision-making* as two cleanly separated steps.
 
 ---
+**Resources:**
 
+- 📄 Paper: [https://arxiv.org/abs/2511.02748](https://arxiv.org/abs/2511.02748)  
+- 📊 Dataset (O-RAN KPIs): [Video Streaming Network KPIs for O-RAN Testing](https://ieee-dataport.org/documents/video-streaming-network-kpis-o-ran-testing)
+
+---
 ## Key Ideas
 
 - **Agentic world modeling**  
