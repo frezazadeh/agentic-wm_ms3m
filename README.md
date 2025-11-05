@@ -158,8 +158,9 @@ If you use this work in your research, please cite:
   title   = {Agentic World Modeling for 6G O-RAN: Near-Real-Time Generative State-Space Reasoning},
   author  = {Rezazadeh, Farhad and Chergui, Hatim and Debbah, Merouane and
              Song, Houbing and Niyato, Dusit and Liu, Lingjia},
-  journal = {arXiv preprint},
-  year    = {2025}
+  journal = {arXiv preprint arXiv:2511.02748},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2511.02748}
 }
 ```
 
