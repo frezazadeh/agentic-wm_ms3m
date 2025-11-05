@@ -1,12 +1,11 @@
 # Agentic World Modeling for 6G O-RAN (WM–MS³M)
 
-> **Repository status:** 🚧 The code will be made **public soon**.  
-> Watch/star the repo to get notified when the implementation is released.
 
 This repository contains the reference implementation of **WM–MS³M** from the paper:
 
 > **Agentic World Modeling for 6G O-RAN: Near-Real-Time Generative State-Space Reasoning**  
 > Farhad Rezazadeh, Hatim Chergui, Merouane Debbah, Houbing Song, Dusit Niyato, and Lingjia Liu.
+> [arXiv:2511.02748](https://arxiv.org/abs/2511.02748)
 
 WM–MS³M is an **agentic world model** for 6G O-RAN that combines:
 
