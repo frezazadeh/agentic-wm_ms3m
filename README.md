@@ -18,6 +18,13 @@ WM–MS³M is an **agentic world model** for 6G O-RAN that combines:
 The goal is to support **near-real-time, counterfactual, and uncertainty-aware control** in 6G O-RAN, treating *prediction/imagination* and *decision-making* as two cleanly separated steps.
 
 ---
+## Paper at a Glance
+
+The figure below summarizes the paper *Agentic World Modeling for 6G* as a high-level mind map.
+
+![Agentic World Modeling for 6G – Mind Map](assets/summary_paper.png)
+
+---
 **Resources:**
 
 - 📄 Paper: [https://arxiv.org/abs/2511.02748](https://arxiv.org/abs/2511.02748)  
