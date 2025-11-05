@@ -181,5 +181,3 @@ For questions, collaborations, or feedback, please contact:
 
 - **Farhad Rezazadeh** – `farhad.rezazadeh@upc.edu`
 
-Or open an issue once the code is live.
-
