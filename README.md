@@ -1,4 +1,4 @@
-# Agentic World Modeling for 6G O-RAN (WM–MS³M)
+# Agentic World Modeling (WM–MS³M)
 
 
 This repository contains the reference implementation of **WM–MS³M** from the paper:
